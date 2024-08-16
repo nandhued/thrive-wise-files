@@ -1,0 +1,26 @@
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntent
+metadata:
+  name: pet
+spec:
+  intent:
+    id: preventExecutionFromTempOrLogsFolders
+    description: >-
+      Mitigate the execution of harmful binaries which may result in exploiting
+      public facing application
+    action: Block
+---
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: ClusterSecurityIntentBinding
+metadata:
+  name: pet-binding
+spec:
+  intents:
+    - name: pet
+  selector:
+    nsSelector:
+      matchNames:
+        - '*'
+    workloadSelector:
+      matchLabels:
+        nf: webui

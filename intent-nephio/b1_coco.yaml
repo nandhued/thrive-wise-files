@@ -1,0 +1,24 @@
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntent
+metadata:
+  name: coco
+spec:
+  intent:
+    id: cocoWorkload
+    description: >-
+      Ensure workload is encryted by running the specified workload in a
+      Confidential VM
+    action: Allow
+---
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntentBinding
+metadata:
+  name: nephio-binding-1
+  namespace: free5gc-cp
+spec:
+  intents:
+    - name: coco
+  selector:
+    workloadSelector:
+      matchLabels:
+        nf: udr

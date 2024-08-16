@@ -1,0 +1,1265 @@
+{
+	"app": {
+		"version": "v0.1"
+	},
+	"endpoints": [
+		{
+			
+			"svc": "backend-system/resource-backend-controller-grpc-svc[grpc]",
+			"host": "10.96.7.56",
+			"port": "9999",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "capd-system/capd-webhook-service",
+			"host": "10.96.66.130",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "Self-signed certificates have the risk of MITM attacks.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "medium",
+					"remediationEstEffort": "low",
+					"solution": "Use certificates signed by approved Certificates Authority (CA).",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "capi-kubeadm-bootstrap-system/capi-kubeadm-bootstrap-webhook-service",
+			"host": "10.96.94.87",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "Self-signed certificates have the risk of MITM attacks.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "medium",
+					"remediationEstEffort": "low",
+					"solution": "Use certificates signed by approved Certificates Authority (CA).",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "capi-kubeadm-control-plane-system/capi-kubeadm-control-plane-webhook-service",
+			"host": "10.96.39.38",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "Self-signed certificates have the risk of MITM attacks.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "medium",
+					"remediationEstEffort": "low",
+					"solution": "Use certificates signed by approved Certificates Authority (CA).",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "capi-system/capi-webhook-service",
+			"host": "10.96.18.165",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "Self-signed certificates have the risk of MITM attacks.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "medium",
+					"remediationEstEffort": "low",
+					"solution": "Use certificates signed by approved Certificates Authority (CA).",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "cert-manager/cert-manager[tcp-prometheus-servicemonitor]",
+			"host": "10.96.164.180",
+			"port": "9402",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "cert-manager/cert-manager-webhook[https]",
+			"host": "10.96.191.66",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "config-management-monitoring/otel-collector[opencensus]",
+			"host": "10.96.212.178",
+			"port": "55678",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "config-management-monitoring/otel-collector[metrics-default]",
+			"host": "10.96.212.178",
+			"port": "8888",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "config-management-monitoring/otel-collector[metrics]",
+			"host": "10.96.212.178",
+			"port": "8675",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "default/kubernetes[https]",
+			"host": "10.96.0.1",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "gitea/gitea[ssh]",
+			"host": "10.96.94.178",
+			"port": "22",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "gitea/gitea[http]",
+			"host": "10.96.94.178",
+			"port": "3000",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "gitea/gitea-memcached[memcache]",
+			"host": "10.96.95.63",
+			"port": "11211",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "gitea/gitea-postgresql[tcp-postgresql]",
+			"host": "10.96.69.53",
+			"port": "5432",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "kube-system/kube-dns[dns-tcp]",
+			"host": "10.96.0.10",
+			"port": "53",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "kube-system/kube-dns[metrics]",
+			"host": "10.96.0.10",
+			"port": "9153",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "metallb-system/webhook-service",
+			"host": "10.96.64.214",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nephio-webui/nephio-webui[http]",
+			"host": "10.96.15.9",
+			"port": "7007",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kubearmor",
+			"host": "10.96.208.116",
+			"port": "32767",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kubearmor-controller-metrics-service[https]",
+			"host": "10.96.103.90",
+			"port": "8443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "self-signed certificate in certificate chain",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kubearmor-controller-webhook-service",
+			"host": "10.96.218.5",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kyverno-background-controller-metrics[metrics-port]",
+			"host": "10.96.231.61",
+			"port": "8000",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kyverno-cleanup-controller[https]",
+			"host": "10.96.139.249",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kyverno-cleanup-controller-metrics[metrics-port]",
+			"host": "10.96.41.25",
+			"port": "8000",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/kyverno-reports-controller-metrics[metrics-port]",
+			"host": "10.96.120.119",
+			"port": "8000",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/nimbus-operator-kyverno-svc[https]",
+			"host": "10.96.15.39",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "nimbus/nimbus-operator-kyverno-svc-metrics[metrics-port]",
+			"host": "10.96.10.222",
+			"port": "8000",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "porch-system/api[api]",
+			"host": "10.96.84.184",
+			"port": "443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "self-signed certificate in certificate chain",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "porch-system/api[webhooks]",
+			"host": "10.96.84.184",
+			"port": "8443",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "porch-system/function-runner",
+			"host": "10.96.104.151",
+			"port": "9445",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.2",
+					"description": "Secure protocol and FIPS-approved ciphers are required to meet the requirements of FIPS-140-3 compliant encryption.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "Implement secure protocol (TLS >= v1.2) and FIPS-approved ciphers. TLS_version: TLSv1.2, ciphersuites: [TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CCM, TLS_ECDHE_ECDSA_WITH_AES_128_CCM, TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8, TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256] TLS_version: TLSv1.3, ciphersuites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256]",
+					"status": "FAIL"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "spire/spire-oidc[http]",
+			"host": "10.96.253.91",
+			"port": "8888",
+			"finding": [
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "FAIL"
+				}
+			]
+		}
+,
+		{
+			
+			"svc": "spire/spire-server[grpc]",
+			"host": "10.96.78.149",
+			"port": "8081",
+			"finding": [
+				{
+					"plugin": "fips-140-3-compliance-check",
+					"title": "FIPS 140-3 compliance check",
+					"compliance": "FIPS.140.3",
+					"control-id": "3.3",
+					"description": "Using TLSv1.3 secure protocol and TLS_AES_128_GCM_SHA256 FIPS-approved cipher.",
+					"link": "https://www.gsa.gov/system/files?file=SSL-TLS-Implementation-%5BCIO-IT-Security-14-69-Rev-7%5D-06-12-2023.pdf",
+					"severity": "medium",
+					"remediationEstEffort": "medium",
+					"solution": "NA",
+					"status": "OK"
+				},
+				{
+					"plugin": "tls-security",
+					"title": "use of TLS security",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "2.1",
+					"description": "It is mandatory for TLS to be enabled for all network communications including east-west traffic.",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "critical",
+					"remediationEstEffort": "medium",
+					"solution": "enable TLS or transport security on the port.",
+					"status": "OK"
+				}
+,
+				{
+					"plugin": "tls-certificate-check",
+					"title": "check for TLS certificate best practices",
+					"compliance": "NIST.SP.800-52",
+					"control-id": "3.3",
+					"description": "unable to verify the first certificate",
+					"link": "https://csrc.nist.gov/news/2019/nist-publishes-sp-800-52-revision-2",
+					"severity": "low",
+					"remediationEstEffort": "low",
+					"solution": "Update certificate signed from trusted CA.",
+					"status": "FAIL"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  namespace: free5gc-cp
+  labels:
+    nf: udr
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      nf: udr
+  template:
+    metadata:
+      labels:
+        nf: udr
+    spec:
+      containers:
+      - name: nginx-pod
+        image: nginx

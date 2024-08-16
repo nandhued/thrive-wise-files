@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  data: dummy
+kind: ConfigMap
+metadata:
+  name: nephio-binding-1-mutateexisting-trigger-configmap
+  namespace: free5gc-cp
+

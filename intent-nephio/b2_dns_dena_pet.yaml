@@ -1,0 +1,48 @@
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntent
+metadata:
+  name: dm
+spec:
+  intent:
+    id: dnsManipulation
+    description: >-
+      An adversary can manipulate DNS requests to redirect network traffic and
+      potentially reveal end user activity
+    action: Block
+---
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntent
+metadata:
+  name: pet
+spec:
+  intent:
+    id: preventExecutionFromTempOrLogsFolders
+    description: >-
+      Mitigate the execution of harmful binaries which may result in exploiting
+      public facing application
+    action: Block
+---
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntent
+metadata:
+  name: dena
+spec:
+  intent:
+    id: denyExternalNetworkAccess
+    description: Deny external network access to prevent data exfiltration
+    action: Block
+---
+apiVersion: intent.security.nimbus.com/v1alpha1
+kind: SecurityIntentBinding
+metadata:
+  name: nephio-binding-2
+  namespace: free5gc-cp
+spec:
+  intents:
+    - name: dm
+    - name: pet
+    - name: dena
+  selector:
+    workloadSelector:
+      matchLabels:
+        nf: webui

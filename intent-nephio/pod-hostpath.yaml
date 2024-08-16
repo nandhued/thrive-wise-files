@@ -1,0 +1,24 @@
+# This manifest mounts /data/foo on the host as /foo inside the
+# single container that runs within the hostpath-example-linux Pod.
+#
+# The mount into the container is read-only.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-pod
+  namespace: free5gc-cp
+  labels:
+    nf: udr
+spec:
+  containers:
+  - name: example-container
+    image: registry.k8s.io/test-webserver
+    volumeMounts:
+    - mountPath: /foo
+      name: example-volume
+      readOnly: true
+  volumes:
+  - name: example-volume
+    hostPath:
+      path: /tmp      # directory location on host
+      type: Directory # this field is optional
